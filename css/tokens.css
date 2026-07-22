@@ -1,0 +1,97 @@
+/* Design tokens. Single source of truth for color, type, spacing.
+   Theme switching: [data-theme="dark"] on <html> overrides the color set. */
+
+:root {
+  /* Brand */
+  --accent: #dd3333;
+  --accent-strong: #b32222;   /* AA text on light backgrounds */
+  --accent-soft: #fdeeee;
+
+  /* Surfaces (light) */
+  --bg: #f7f8f9;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --border: #e2e5e9;
+  --border-strong: #c9ced5;
+
+  /* Ink: chunky borders + hard offset shadows (neo-brutalist frame) */
+  --ink-line: #1a1a1a;    /* border color on cards, nav, buttons */
+  --ink-shadow: #1a1a1a;  /* solid, no-blur drop shadow color */
+
+  /* Text (light) */
+  --text: #16181d;
+  --text-secondary: #4b5261;
+  --text-muted: #6d7482;
+  --text-on-accent: #ffffff;
+
+  /* Publication tints for image fallbacks */
+  --tint-kinsta: #ede9fe;
+  --tint-rtcamp: #e0f2f1;
+  --tint-wprocket: #fff3e0;
+  --tint-wpmudev: #e3f2fd;
+  --tint-multidots: #fce4ec;
+
+  /* Type */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+
+  --step--1: 0.875rem;   /* 14px */
+  --step-0: 1.0625rem;   /* 17px body */
+  --step-1: 1.25rem;
+  --step-2: 1.625rem;
+  --step-3: 2.125rem;
+  --step-4: clamp(2.5rem, 5.5vw, 3.5rem);
+
+  /* Layout */
+  --measure: 68ch;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6.5rem;
+  --container: 1120px;
+
+  /* Hard offset shadows (solid, no blur) */
+  --shadow-sm: 3px 3px 0 0 var(--ink-shadow);
+  --shadow-card: 4px 4px 0 0 var(--ink-shadow);
+  --shadow-card-hover: 7px 7px 0 0 var(--ink-shadow);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --accent: #ef4d4d;
+  --accent-strong: #ff6b6b;
+  --accent-soft: #34181a;
+
+  --bg: #101215;
+  --surface: #181b20;
+  --surface-raised: #1e2228;
+  --border: #262b32;
+  --border-strong: #3a414b;
+
+  /* Ink: lighter border so it reads on dark; near-black offset shadow */
+  --ink-line: #5b6472;
+  --ink-shadow: #000000;
+
+  --text: #e9ebee;
+  --text-secondary: #aeb5c0;
+  --text-muted: #8b93a0;
+  --text-on-accent: #ffffff;
+
+  --tint-kinsta: #2a2440;
+  --tint-rtcamp: #16302e;
+  --tint-wprocket: #362a17;
+  --tint-wpmudev: #17293a;
+  --tint-multidots: #381f2a;
+
+  --shadow-sm: 3px 3px 0 0 var(--ink-shadow);
+  --shadow-card: 4px 4px 0 0 var(--ink-shadow);
+  --shadow-card-hover: 7px 7px 0 0 var(--ink-shadow);
+
+  color-scheme: dark;
+}
