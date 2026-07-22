@@ -1,0 +1,71 @@
+name: Deploy to Cloudways
+
+# On every push to main (or a manual run): authenticate to Cloudways API v2,
+# trigger the Git pull that deploys the latest commit, then purge this
+# app's cache so the new files show immediately.
+on:
+  # Auto-deploy on push is OFF for now (using the manual Cloudways pull).
+  # To turn it on later, add the CLOUDWAYS_* secrets, then uncomment:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch: {}   # manual trigger from the Actions tab
+
+concurrency:
+  group: cloudways-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy + purge cache (Cloudways API v2)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull latest commit and purge Varnish
+        env:
+          CW_EMAIL: ${{ secrets.CLOUDWAYS_EMAIL }}
+          CW_API_KEY: ${{ secrets.CLOUDWAYS_API_KEY }}
+          CW_SERVER_ID: ${{ secrets.CLOUDWAYS_SERVER_ID }}
+          CW_APP_ID: ${{ secrets.CLOUDWAYS_APP_ID }}
+          CW_DEPLOY_PATH: ${{ secrets.CLOUDWAYS_DEPLOY_PATH }}
+        run: |
+          API="https://api.cloudways.com/api/v2"
+
+          echo "== Requesting OAuth access token =="
+          AUTH=$(curl -sS -X POST "$API/oauth/access_token" \
+            --data-urlencode "email=$CW_EMAIL" \
+            --data-urlencode "api_key=$CW_API_KEY" \
+            --data-urlencode "grant_type=password")
+          TOKEN=$(echo "$AUTH" | jq -r '.access_token // empty')
+          if [ -z "$TOKEN" ]; then
+            echo "::error::Could not get an access token. Check the CLOUDWAYS_EMAIL and CLOUDWAYS_API_KEY secrets."
+            echo "Response: $AUTH"
+            exit 1
+          fi
+          echo "::add-mask::$TOKEN"
+          echo "Access token acquired."
+
+          echo "== Triggering git pull (branch: main) =="
+          HTTP=$(curl -sS -o /tmp/cw_pull.json -w "%{http_code}" -X POST "$API/git/pull" \
+            -H "Authorization: Bearer $TOKEN" \
+            --data-urlencode "server_id=$CW_SERVER_ID" \
+            --data-urlencode "app_id=$CW_APP_ID" \
+            --data-urlencode "branch_name=main" \
+            --data-urlencode "deploy_path=${CW_DEPLOY_PATH}")
+          echo "HTTP $HTTP"; cat /tmp/cw_pull.json; echo
+          if [ "$HTTP" != "200" ]; then
+            echo "::error::git/pull failed (HTTP $HTTP). See the response above."
+            exit 1
+          fi
+          echo "Cloudways git pull triggered successfully."
+
+          echo "== Purging the app cache =="
+          PURGE=$(curl -sS -o /tmp/cw_purge.json -w "%{http_code}" -X POST "$API/app/cache/purge" \
+            -H "Authorization: Bearer $TOKEN" \
+            --data-urlencode "server_id=$CW_SERVER_ID" \
+            --data-urlencode "app_id=$CW_APP_ID" || echo "000")
+          echo "HTTP $PURGE"; cat /tmp/cw_purge.json 2>/dev/null; echo
+          if [ "$PURGE" != "200" ]; then
+            echo "::warning::App cache purge did not succeed (HTTP $PURGE). The deploy is live, but the Cloudways cache may be stale. Make sure the token includes the 'app/cache/purge' endpoint."
+          else
+            echo "App cache purged."
+          fi
