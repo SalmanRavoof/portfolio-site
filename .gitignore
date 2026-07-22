@@ -1,0 +1,17 @@
+# Build artifact (Git deploy replaces the old zip-and-upload flow)
+deploy.zip
+
+# Stray duplicate copy of the site — not source
+deploy/
+
+# Claude Code local settings (machine-specific, not site content)
+.claude/
+
+# Developer-only files — not needed to run the site, kept off the webroot
+tools/
+*.md
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
