@@ -469,6 +469,33 @@ a.pub-link:hover { opacity: 0.85; }
   border-radius: 999px;
 }
 
+/* External validation badge (strongest credibility signal). Bold on purpose. */
+.card-cite {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  align-self: flex-start;
+  margin-block: 0.15rem 0.35rem;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.3;
+  padding: 0.35rem 0.65rem;
+  border: 2px solid var(--ink-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+a.card-cite:hover {
+  background: var(--accent-strong);
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-card);
+}
+.card-cite svg { flex-shrink: 0; margin-top: 0.05rem; }
+
 .tag {
   background: var(--bg);
   border: 1.5px solid var(--ink-line);
@@ -520,6 +547,38 @@ a.pub-link:hover { opacity: 0.85; }
 }
 .process-step h3 { margin-bottom: 0.35rem; }
 .process-step p { color: var(--text-secondary); font-size: 0.9375rem; }
+
+/* ---------- Code & side projects (GitHub) ---------- */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-3);
+}
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--surface);
+  border: 2px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-3);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+.repo-card:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-card-hover); }
+.repo-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+.repo-name svg { flex-shrink: 0; }
+.repo-desc { color: var(--text-secondary); font-size: 0.9375rem; }
+.repo-more { margin-top: var(--space-3); }
 
 /* ---------- Testimonials ---------- */
 .testimonial-grid {
