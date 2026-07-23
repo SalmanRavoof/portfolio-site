@@ -83,6 +83,7 @@
     </button>
     <nav class="site-nav" id="primary-nav" aria-label="Main">
       <a href="#work" data-spy>Work</a>
+      <a href="#code" data-spy>Code</a>
       <a href="#value" data-spy>What you get</a>
       <a href="#process" data-spy>How I work</a>
       <a href="#about" data-spy>About</a>
@@ -154,12 +155,56 @@
       <div class="section-head">
         <div>
           <p class="section-kicker">Selected work &darr;</p>
-          <h2>Start with these eight</h2>
+          <h2>Start with these <span data-featured-count>10</span></h2>
           <p class="section-note">Each one picked for a different kind of reader. Find the badge that sounds like you and start there. Or <a href="work.html">browse the full archive</a> with filters.</p>
         </div>
       </div>
       <p class="work-proof">Everything below links to live, published work. Read a few paragraphs of any piece and you'll know whether I'm your writer.</p>
       <div class="featured-grid" data-featured-grid></div>
+    </div>
+  </section>
+
+  <!-- Code and side projects -->
+  <section class="section" id="code">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="section-kicker">Code &amp; side projects &darr;</p>
+          <h2>I build what I write about</h2>
+          <p class="section-note">The code samples run and the technical claims check out because I ship the same stack. A few things I've built in the open on <a href="https://github.com/SalmanRavoof" target="_blank" rel="noopener">GitHub</a>.</p>
+        </div>
+      </div>
+      <div class="repo-grid">
+        <a class="repo-card" href="https://github.com/SalmanRavoof/portfolio-site" target="_blank" rel="noopener">
+          <span class="repo-name">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            portfolio-site
+          </span>
+          <span class="repo-desc">The site you're reading right now, hand-coded in plain HTML, CSS, and vanilla JavaScript. No framework, no build step, no dependencies.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/SalmanRavoof/TALL-Stack-Demo" target="_blank" rel="noopener">
+          <span class="repo-name">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            TALL-Stack-Demo
+          </span>
+          <span class="repo-desc">A video games aggregator built on the TALL stack, deployed to Kinsta Application Hosting.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/SalmanRavoof/hello-world-laravel" target="_blank" rel="noopener">
+          <span class="repo-name">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            hello-world-laravel
+          </span>
+          <span class="repo-desc">A worked example of setting up a Laravel app for deployment on Kinsta App Hosting.</span>
+        </a>
+        <a class="repo-card" href="https://github.com/SalmanRavoof/sal-custom-login-page" target="_blank" rel="noopener">
+          <span class="repo-name">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17 4.7 18 5 18 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            sal-custom-login-page
+          </span>
+          <span class="repo-desc">A WordPress hooks demo, actions and filters, that customises the login page.</span>
+        </a>
+      </div>
+      <p class="repo-more"><a href="https://github.com/SalmanRavoof" target="_blank" rel="noopener">See everything on GitHub &rarr;</a></p>
     </div>
   </section>
 
@@ -283,7 +328,7 @@
         <div>
           <p>I'm a self-taught developer who found out he's better at explaining code than shipping it. That mix is the whole pitch: I understand what I'm writing about deeply enough to be accurate, and I care about the reader enough to be clear.</p>
           <p style="margin-top: var(--space-2);">I ran editorial at Kinsta as Technical Editor, managing 20+ freelance writers, then moved to rtCamp as Senior Technical Content Writer, producing the enterprise WordPress content that lands in front of C-suites. Before tech writing, I co-founded a brand and design agency, which is why the visuals in my pieces don't look like afterthoughts.</p>
-          <p style="margin-top: var(--space-2);">More about the non-writing parts of my life at <a href="https://salmanravoof.com">salmanravoof.com</a>.</p>
+          <p style="margin-top: var(--space-2);">More about the non-writing parts of my life at <a href="https://salmaniac.com">salmaniac.com</a>.</p>
         </div>
         <dl class="about-facts">
           <div class="about-fact"><dt>Currently</dt><dd>Freelance technical content writer &amp; content strategist</dd></div>

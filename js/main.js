@@ -79,6 +79,20 @@
     var h = el("h3", null, [el("a", { href: clip.url, target: "_blank", rel: "noopener", text: clip.title })]);
     body.appendChild(h);
 
+    // External validation badge (e.g. cited by the tool's own project).
+    if (clip.cite) {
+      var check = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+      var citeAttrs = { "class": "card-cite", html: check + "<span>" + clip.cite + "</span>" };
+      var citeTag = "span";
+      if (clip.citeUrl) {
+        citeTag = "a";
+        citeAttrs.href = clip.citeUrl;
+        citeAttrs.target = "_blank";
+        citeAttrs.rel = "noopener";
+      }
+      body.appendChild(el(citeTag, citeAttrs));
+    }
+
     if (clip.description) {
       body.appendChild(el("p", { "class": "card-desc", text: clip.description }));
     }
@@ -101,9 +115,13 @@
   // ----- Featured grid (landing page) -----
   var featuredGrid = document.querySelector("[data-featured-grid]");
   if (featuredGrid) {
-    DATA.clips.filter(function (c) { return c.featured; }).forEach(function (clip) {
+    var featuredClips = DATA.clips.filter(function (c) { return c.featured; });
+    featuredClips.forEach(function (clip) {
       featuredGrid.appendChild(buildCard(clip, { showAudience: true }));
     });
+    // Keep the heading's count in sync with the data automatically.
+    var featuredCountNode = document.querySelector("[data-featured-count]");
+    if (featuredCountNode) featuredCountNode.textContent = featuredClips.length;
   }
 
   // ----- Testimonials -----
