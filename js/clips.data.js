@@ -230,24 +230,6 @@ window.PORTFOLIO_DATA = {
       "image": "https://kinsta.com/wp-content/uploads/2023/01/next-js-vs-react.png"
     },
     {
-      "id": "clip-02",
-      "title": "Drupal Alternatives in 2026: An Enterprise Evaluation Guide",
-      "url": "https://rtcamp.com/resources/drupal-alternatives/",
-      "publication": "rtCamp",
-      "type": "thought-leadership",
-      "topics": [
-        "enterprise"
-      ],
-      "section": "Enterprise strategy and thought leadership",
-      "description": "Compares the big publishing platforms on the questions a CTO cares about, like how easy developers are to hire and what the platform costs over time. Readers get a checklist they can use on their own.",
-      "ghostwritten": false,
-      "featured": false,
-      "audience": null,
-      "metric": null,
-      "note": null,
-      "image": "https://rtcamp.com/wp-content/uploads/sites/2/2026/01/featurerd_image_drupal_alternatives_6fdf6d.webp"
-    },
-    {
       "id": "clip-18",
       "title": "How to Reduce the Impact of Third-Party Scripts",
       "url": "https://wp-rocket.me/blog/third-party-scripts/",
